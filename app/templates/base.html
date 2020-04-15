@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head %}{% endblock %}
+    </head>
+    <body>
+        {% set navlist = [
+            ('/', 'index', 'Index'),
+            ( '/products', 'products', 'Products' ),
+            ( '/account', 'account', 'Account')
+        ] -%}
+        <nav>
+            <ul >
+            {% for href , id , caption in navlist %}
+                <li > <a id="{{ id|e }}" href ="{{ href |e }}"> {{ caption | e }} </a> </li >
+            {% endfor %}
+            </ul >
+        </nav>
+        {% block body %}{% endblock %}
+    </body>
+</html>

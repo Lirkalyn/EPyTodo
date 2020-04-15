@@ -7,5 +7,6 @@
 ##
 
 from app import app
+from app import views
 
-app.run()
+app.run(debug=True)
